@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="true">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_login_cl_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+
+            <TextView
+                android:id="@+id/fragment_login_tv_changeLang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/language"
+                android:drawableEnd="@drawable/lang_icon_blue"
+                android:textColor="@color/blue"
+                android:drawablePadding="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_tv_changeLang"
+                app:srcCompat="@drawable/logo" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_login_il_emailMobileContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="75dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_login_et_emailMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/lightGray" 
+                    android:hint="@string/emailOrMobile"
+                    android:fontFamily="@font/raleway_medium"
+                    android:textSize="14sp"
+                    android:paddingBottom="15dp"
+                    android:textAlignment="viewStart"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_login_il_passContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:errorEnabled="true"
+                app:hintEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_login_il_emailMobileContainer"
+                app:layout_constraintStart_toStartOf="@+id/fragment_login_il_emailMobileContainer"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_il_emailMobileContainer">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_login_et_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/lightGray"
+                    android:hint="@string/password"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/raleway_medium"
+                    android:textAlignment="viewStart"
+                    android:paddingBottom="15dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            
+            <TextView
+                android:id="@+id/fragment_login_tv_forgetPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/forgetPassword"
+                android:textColor="@color/gray"
+                android:layout_marginTop="48dp"
+                android:fontFamily="@font/raleway_regular"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_login_il_passContainer"
+                app:layout_constraintStart_toStartOf="@+id/fragment_login_il_passContainer"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_il_passContainer" />
+
+            <TextView
+                android:id="@+id/fragment_login_tv_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_btn"
+                android:gravity="center"
+                android:text="@string/login"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/white"
+                android:layout_marginTop="45dp"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_login_il_passContainer"
+                app:layout_constraintStart_toStartOf="@+id/fragment_login_il_passContainer"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_tv_forgetPass" />
+
+            <TextView
+                android:id="@+id/fragment_login_tv_signUp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/signup_btn"
+                android:gravity="center"
+                android:text="@string/signup"
+                android:textColor="@color/white"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/raleway_semibold"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_login_tv_login"
+                app:layout_constraintStart_toStartOf="@+id/fragment_login_tv_login"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_tv_login" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/blue"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_login_tv_"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_login_tv_"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/fragment_login_tv_" />
+
+            <TextView
+                android:id="@+id/fragment_login_tv_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/or"
+                android:fontFamily="@font/raleway_regular"
+                android:gravity="center"
+                android:textColor="@color/blue"
+                android:layout_marginTop="42dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_tv_signUp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@color/blue"
+                android:layout_marginStart="12dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_login_tv_"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fragment_login_tv_"
+                app:layout_constraintTop_toTopOf="@+id/fragment_login_tv_" />
+
+            <TextView
+                android:id="@+id/fragment_login_tv_asGuest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/continueAsGuest"
+                android:textColor="@color/blue"
+                android:fontFamily="@font/raleway_regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_login_tv_"
+                app:layout_constraintVertical_bias="0.0" />
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </ScrollView>
+    
+    <include layout="@layout/loading"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
