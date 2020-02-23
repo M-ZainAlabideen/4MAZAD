@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fragment_filters_cl_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_filters_rv_filters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintBottom_toTopOf="@+id/textView201"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_filter" />
+
+
+            <TextView
+                android:id="@+id/textView201"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="28dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/price"
+                android:textColor="@color/blue"
+                app:layout_constraintBottom_toTopOf="@+id/textView205"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView205"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="100 KWD"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_filters_rb_pricesRange"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/textView206"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="10000 KWD"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView205"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView205" />
+
+
+            <com.appyvet.materialrangebar.RangeBar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/fragment_filters_rb_pricesRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                app:mrb_connectingLineColor="@color/lightBlue"
+                app:mrb_leftSelectorColor="@color/lightBlue"
+                app:mrb_rightSelectorColor="@color/lightBlue"
+                app:mrb_tickDefaultColor="@color/gray"
+                app:mrb_tickLabelSize="10sp"
+                app:mrb_selectorBoundaryColor="@color/gray"
+                app:mrb_pinColor="@color/lightBlue"
+                app:mrb_tickStart="100"
+                app:mrb_tickEnd="10000"
+                app:mrb_pinRadius="15dp"
+                app:mrb_rangeBar="true"
+                app:mrb_temporaryPins="true"
+                app:mrb_selectorBoundarySize="5dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout0"
+                app:layout_constraintEnd_toEndOf="@+id/textView206"
+                app:layout_constraintStart_toStartOf="@+id/textView205"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout0"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_filters_rb_pricesRange"
+                app:layout_constraintStart_toStartOf="@+id/fragment_filters_rb_pricesRange">
+
+                <TextView
+                    android:id="@+id/fragment_filters_tv_startPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="100 KWD"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/fragment_filters_tv_endPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="10000 KWD"
+                    android:textColor="@color/blue"
+                    android:textSize="12sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/fragment_filters_tv_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/clear_btn"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/clear"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    tools:layout_editor_absoluteX="28dp"
+                    tools:layout_editor_absoluteY="659dp" />
+
+                <TextView
+                    android:id="@+id/fragment_filters_tv_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/done_btn_larg"
+                    android:fontFamily="@font/raleway_semibold"
+                    android:gravity="center"
+                    android:text="@string/done"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    tools:layout_editor_absoluteX="254dp"
+                    tools:layout_editor_absoluteY="659dp" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <include layout="@layout/loading" />
+</androidx.constraintlayout.widget.ConstraintLayout>

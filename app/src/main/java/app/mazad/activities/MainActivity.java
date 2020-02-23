@@ -16,8 +16,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import app.mazad.R;
@@ -32,6 +30,7 @@ import app.mazad.fragments.HomeFragment;
 import app.mazad.fragments.LoginFragment;
 import app.mazad.fragments.MoreFragment;
 import app.mazad.fragments.NotificationsFragment;
+import app.mazad.fragments.PackagesFragment;
 import app.mazad.fragments.SignUpFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     public static ConstraintLayout topAppbar;
     public static BottomNavigationView bottomAppbar;
     public static ImageView back;
-    public static ImageView close;
     public static ImageView sort;
     public static ImageView filter;
     public static SearchView search;
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         bottomAppbar = (BottomNavigationView) findViewById(R.id.activity_main_bnv_bottomAppbar);
 
         back = findViewById(R.id.activity_main_iv_back);
-        close = findViewById(R.id.activity_main_iv_close);
         sort = findViewById(R.id.activity_main_iv_sort);
         filter = findViewById(R.id.activity_main_iv_filter);
         search = findViewById(R.id.activity_main_sv_search);
@@ -81,40 +78,42 @@ public class MainActivity extends AppCompatActivity {
         FixControl.setupUI(this, activityContainer);
         sessionManager = new SessionManager(this);
         if (!sessionManager.isGuest() && !sessionManager.isLoggedIn()) {
-            //fix it
-            Navigator.loadFragment(this,HomeFragment.newInstance(this), R.id.activity_main_fl_appContainer, false);
+            Navigator.loadFragment(this, LoginFragment.newInstance(this), R.id.activity_main_fl_appContainer, true);
         } else {
-            Navigator.loadFragment(this, HomeFragment.newInstance(this), R.id.activity_main_fl_appContainer, false);
+            Navigator.loadFragment(this, HomeFragment.newInstance(this), R.id.activity_main_fl_appContainer, true);
         }
     }
 
     //the back button action of all the app
-    @OnClick({R.id.activity_main_iv_back, R.id.activity_main_iv_close})
+    @OnClick(R.id.activity_main_iv_back)
     public void back() {
-        onBackPressed();
+        if (!search.isIconified()) {
+            search.onActionViewCollapsed();
+        } else {
+            onBackPressed();
+        }
     }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        onBackPressed();
+        if (!search.isIconified()) {
+            search.onActionViewCollapsed();
+        } else {
+            onBackPressed();
+        }
         return true;
     }
 
     /*this function used for initialization and setUp topAppbar for each screen
      * for example: if title = true and sideMenu = false >> this mean that this screen has title but not has sideMenu and so on
      * */
-    public static void setupAppbar(boolean hasTopAppbar, boolean hasBack, boolean hasClose, boolean isProductPage, boolean hasBottomAppbar, String titleStr) {
+    public static void setupAppbar(boolean hasTopAppbar, boolean hasBack, boolean isProductPage, boolean hasBottomAppbar, String titleStr) {
         if (hasTopAppbar) {
             topAppbar.setVisibility(View.VISIBLE);
             if (hasBack) {
                 back.setVisibility(View.VISIBLE);
             } else {
                 back.setVisibility(View.GONE);
-            }
-            if (hasClose) {
-                close.setVisibility(View.VISIBLE);
-            } else {
-                close.setVisibility(View.GONE);
             }
             if (isProductPage) {
                 sort.setVisibility(View.VISIBLE);
@@ -149,10 +148,6 @@ public class MainActivity extends AppCompatActivity {
                             return false;
                         }
                     });
-
-          //  BadgeDrawable badgeDrawable = BadgeDrawable.create(this);
-          //  BadgeUtils.attachBadgeDrawable(badgeDrawable,bottomAppbar.getMenu().findItem(menu.getItem(3).getItemId()).getActionView(), null);
-           bottomAppbar.getOrCreateBadge(menu.getItem(2).getItemId());
         }
 //        else {
 //            HomeFragment homeFragment = HomeFragment.newInstance(this);
@@ -178,14 +173,17 @@ public class MainActivity extends AppCompatActivity {
 //=======================================================================================================================
             // Notifications screen
             case R.id.bottom_navigation_menu_notifications:
-                // item.setIcon(R.drawable.notification_icon_sel);
-                NotificationsFragment notificationsFragment = NotificationsFragment.newInstance(this);
-                Navigator.loadFragment(this, notificationsFragment, R.id.activity_main_fl_appContainer, true);
+                if (!sessionManager.isLoggedIn()) {
+                    LoginFragment loginFragment = LoginFragment.newInstance(this);
+                    Navigator.loadFragment(this, loginFragment, R.id.activity_main_fl_appContainer, true);
+                } else {
+                    NotificationsFragment notificationsFragment = NotificationsFragment.newInstance(this);
+                    Navigator.loadFragment(this, notificationsFragment, R.id.activity_main_fl_appContainer, true);
+                }
                 break;
 //=======================================================================================================================
             // More screen
             case R.id.bottom_navigation_menu_more:
-                //   item.setIcon(R.drawable.more_icon_sel);
                 MoreFragment moreFragment = MoreFragment.newInstance(this);
                 Navigator.loadFragment(this, moreFragment, R.id.activity_main_fl_appContainer, true);
                 break;

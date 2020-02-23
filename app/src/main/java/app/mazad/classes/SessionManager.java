@@ -15,10 +15,8 @@ public class SessionManager {
     private static final String LANGUAGE_CODE = "language_lode";
     private static final String USER_TOKEN = "user_token";
     private static final String IS_GUEST = "is_guest";
-    private static final String NAME = "name";
-    private static final String EMAIL = "email";
+    private static final String HAS_PACKAGE = "has_package";
     private static final String PHONE_NUMBER = "phone_number";
-    private static final String USER_NAME = "user_name";
 
 
     public SessionManager(Context context) {
@@ -53,8 +51,8 @@ public class SessionManager {
     public void logout() {
         setUserId(0);
         setUserToken(null);
-        setName(null);
-        setEmail(null);
+        setPackage(false);
+        setPhoneNumber(null);
         editor.putBoolean(IS_LOGGED, false);
         editor.apply();
     }
@@ -77,7 +75,7 @@ public class SessionManager {
         return sharedPref.getInt(USER_ID, 0);
     }
 
-   public void setUserLanguage(String languageCode) {
+    public void setUserLanguage(String languageCode) {
         editor.putString(LANGUAGE_CODE, languageCode);
         editor.apply();
     }
@@ -86,26 +84,14 @@ public class SessionManager {
         return sharedPref.getString(LANGUAGE_CODE, "");
     }
 
-
-    public void setName(String name) {
-        editor.putString(NAME,name);
+    public void setPackage(boolean hasPackage) {
+        editor.putBoolean(HAS_PACKAGE, hasPackage);
         editor.apply();
     }
 
-    public String getName() {
-        return sharedPref.getString(NAME, "");
+    public boolean hasPackage() {
+        return sharedPref.getBoolean(HAS_PACKAGE, false);
     }
-
-
-    public void setEmail(String email) {
-        editor.putString(EMAIL, email);
-        editor.apply();
-    }
-
-    public String getEmail() {
-        return sharedPref.getString(EMAIL, "");
-    }
-
 
     public void setPhoneNumber(String phoneNumber) {
         editor.putString(PHONE_NUMBER, phoneNumber);
@@ -114,15 +100,6 @@ public class SessionManager {
 
     public String getPhoneNumber() {
         return sharedPref.getString(PHONE_NUMBER, "");
-    }
-
-    public void setUserName(String userName) {
-        editor.putString(USER_NAME, userName);
-        editor.apply();
-    }
-
-    public String getUserName() {
-        return sharedPref.getString(USER_NAME, "");
     }
 }
 

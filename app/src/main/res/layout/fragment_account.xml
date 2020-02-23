@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:id="@+id/fragment_account_cl_container">
 
     <TextView
         android:id="@+id/textView49"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/profile_icon"
         android:drawablePadding="30dp"
+        android:gravity="center"
         android:text="@string/editProfile"
         android:fontFamily="@font/raleway_regular"
         android:layout_marginTop="24dp"
@@ -44,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginTop="24dp"
-        android:background="@color/gray"
+        android:background="@color/lightGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
@@ -57,6 +59,7 @@
         android:drawablePadding="30dp"
         android:layout_marginTop="24dp"
         android:text="@string/changePassword"
+        android:gravity="center"
         android:fontFamily="@font/raleway_regular"
         android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="@+id/textView49"
@@ -85,7 +88,7 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginTop="24dp"
-        android:background="@color/gray"
+        android:background="@color/lightGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
@@ -98,6 +101,7 @@
         android:drawableStart="@drawable/bid_icon"
         android:drawablePadding="30dp"
         android:layout_marginTop="24dp"
+        android:gravity="center"
         android:text="@string/myBidding"
         android:fontFamily="@font/raleway_regular"
         android:textColor="@color/darkGray"
@@ -127,24 +131,69 @@
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginTop="24dp"
-        android:background="@color/gray"
+        android:background="@color/lightGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
 
     <TextView
+        android:id="@+id/textView511"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/history_icon"
+        android:drawablePadding="30dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:text="@string/paymentHistory"
+        android:fontFamily="@font/raleway_regular"
+        android:textColor="@color/darkGray"
+        app:layout_constraintStart_toStartOf="@+id/textView51"
+        app:layout_constraintTop_toBottomOf="@+id/view30" />
+
+    <ImageView
+        android:id="@+id/fragment_account_iv_paymentHistoryArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/textView511"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_account_iv_changePassArrow"
+        app:layout_constraintTop_toTopOf="@+id/textView511"
+        app:srcCompat="@drawable/forward_icon" />
+
+    <View
+        android:id="@+id/fragment_account_v_paymentHistory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/view355"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view30"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view355"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/lightGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView511"/>
+
+    <TextView
         android:id="@+id/textView52"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/logout_icon"
         android:drawablePadding="30dp"
-        android:text="@string/logout"
         android:fontFamily="@font/raleway_regular"
-        android:layout_marginTop="24dp"
+        android:text="@string/logout"
+        android:gravity="center"
         android:textColor="@color/red"
         app:layout_constraintStart_toStartOf="@+id/textView51"
-        app:layout_constraintTop_toBottomOf="@+id/view30" />
+        app:layout_constraintTop_toBottomOf="@+id/view355" />
 
     <ImageView
         android:id="@+id/fragment_account_iv_logoutArrow"
@@ -161,18 +210,21 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/view32"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view30" />
+        app:layout_constraintTop_toBottomOf="@+id/view355"
+        app:layout_constraintVertical_bias="1.0" />
 
     <View
         android:id="@+id/view32"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginTop="24dp"
-        android:background="@color/gray"
+        android:background="@color/lightGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
+    <include layout="@layout/loading"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

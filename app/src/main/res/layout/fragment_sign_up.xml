@@ -68,10 +68,9 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/fragment_sign_up_il_nameContainer"
+                    android:id="@+id/fragment_sign_up_il_fullNameContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/darkGray"
                     app:errorEnabled="true"
                     app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -79,12 +78,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fragment_sign_up_et_name"
+                        android:id="@+id/fragment_sign_up_et_fullName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/lightGray"
                         android:ems="10"
-                        android:hint="@string/name"
+                        android:hint="@string/fullName"
                         android:textSize="14sp"
                         android:fontFamily="@font/raleway_medium"
                         android:textAlignment="viewStart"
@@ -92,15 +91,14 @@
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="15dp"
+                        android:textColorHint="@color/darkGray"
                         android:textColor="@color/darkGray" />
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/fragment_sign_up_il_emailContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/darkGray"
                     app:errorEnabled="true"
                     app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -122,32 +120,44 @@
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="15dp"
+                        android:textColorHint="@color/darkGray"
                         android:textColor="@color/darkGray" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_sign_up_il_civilIdContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
-                    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
-                        android:id="@+id/fragment_sign_up_ccp_countryCode"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/poppins_regular"
-                        android:gravity="center"
-                        android:paddingEnd="12dp"
-                        app:ccp_defaultCode="965"
-                        app:ccp_defaultNameCode="KW"
-                        app:ccp_hideNameCode="true"
-                        app:ccp_showFlag="false"
-                        app:ccp_textSize="14sp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fragment_sign_up_et_civilId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/lightGray"
+                        android:ems="10"
+                        android:hint="@string/civilId"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textAlignment="viewStart"
+                        android:inputType="number"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="15dp"
+                        android:textColorHint="@color/darkGray"
+                        android:textColor="@color/darkGray" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fragment_sign_up_il_mobileContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColorHint="@color/darkGray"
                         app:errorEnabled="true"
                         app:hintEnabled="true"
                         android:orientation="horizontal"
@@ -169,15 +179,43 @@
                             android:paddingStart="8dp"
                             android:paddingEnd="8dp"
                             android:paddingBottom="15dp"
+                            android:textColorHint="@color/darkGray"
                             android:textColor="@color/darkGray" />
                     </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fragment_sign_up_il_userNameContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fragment_sign_up_et_userName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/lightGray"
+                        android:ems="10"
+                        android:hint="@string/userName"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/raleway_medium"
+                        android:textAlignment="viewStart"
+                        android:inputType="textPersonName"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="15dp"
+                        android:textColorHint="@color/darkGray"
+                        android:textColor="@color/darkGray" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/fragment_sign_up_il_passContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/darkGray"
                     app:errorEnabled="true"
                     app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +244,6 @@
                     android:id="@+id/fragment_sign_up_il_confirmPassContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColorHint="@color/darkGray"
                     app:errorEnabled="true"
                     app:hintEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -294,7 +331,14 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
-
+                <TextView
+                    android:id="@+id/fragment_sign_up_tv_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/red"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/selectCivilIdImages"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

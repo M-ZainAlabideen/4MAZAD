@@ -8,12 +8,13 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/textView49"
+        android:id="@+id/fragment_more_tv_myAccountTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/user_icon"
         android:drawablePadding="30dp"
         android:text="@string/account"
+        android:gravity="center"
         android:fontFamily="@font/raleway_regular"
         android:layout_marginTop="24dp"
         android:layout_marginStart="35dp"
@@ -26,9 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView49"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_more_tv_myAccountTxt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView49"
+        app:layout_constraintTop_toTopOf="@+id/fragment_more_tv_myAccountTxt"
         app:srcCompat="@drawable/forward_icon" />
 
     <View
@@ -48,7 +49,7 @@
         android:background="@color/lightGray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+        app:layout_constraintTop_toBottomOf="@+id/fragment_more_tv_myAccountTxt" />
 
     <TextView
         android:id="@+id/textView50"
@@ -58,9 +59,10 @@
         android:drawablePadding="30dp"
         android:layout_marginTop="24dp"
         android:text="@string/aboutUs"
+        android:gravity="center"
         android:fontFamily="@font/raleway_regular"
         android:textColor="@color/darkGray"
-        app:layout_constraintStart_toStartOf="@+id/textView49"
+        app:layout_constraintStart_toStartOf="@+id/fragment_more_tv_myAccountTxt"
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <ImageView
@@ -100,6 +102,7 @@
         android:drawablePadding="30dp"
         android:layout_marginTop="24dp"
         android:text="@string/contactUs"
+        android:gravity="center"
         android:fontFamily="@font/raleway_regular"
         android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="@+id/textView50"
@@ -141,6 +144,7 @@
         android:drawableStart="@drawable/faq_icon"
         android:drawablePadding="30dp"
         android:text="@string/faq"
+        android:gravity="center"
         android:fontFamily="@font/raleway_regular"
         android:layout_marginTop="24dp"
         android:textColor="@color/darkGray"
@@ -184,6 +188,7 @@
         android:drawablePadding="30dp"
         android:layout_marginTop="24dp"
         android:text="@string/language"
+        android:gravity="center"
         android:textColor="@color/darkGray"
         app:layout_constraintStart_toStartOf="@+id/textView52"
         app:layout_constraintTop_toBottomOf="@+id/view32" />

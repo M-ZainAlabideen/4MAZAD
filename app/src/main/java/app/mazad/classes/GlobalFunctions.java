@@ -103,6 +103,42 @@ public class GlobalFunctions {
         }
     }
 
+    public static boolean validateCivilID(String civilID) {
+        boolean valid = false;
+
+        /*Log.d("a1", "1 -> "+civilID.substring(0, 1));
+
+        Log.d("a1", "2 -> "+civilID.substring(1, 2));
+
+        int a1 = (Integer.parseInt(civilID.substring(0, 1)) * 2);
+
+        Log.d("a1", ""+a1);
+
+        int a1 = (Integer.parseInt(civilID.substring(1, 1)) * 1);
+
+        int a1 = (Integer.parseInt(civilID.substring(0, 1)) * 2);*/
+
+        double test = 11 - (((Integer.parseInt(civilID.substring(0, 1)) * 2) +
+                (Integer.parseInt(civilID.substring(1, 2)) * 1) +
+                (Integer.parseInt(civilID.substring(2, 3)) * 6) +
+                (Integer.parseInt(civilID.substring(3, 4)) * 3) +
+                (Integer.parseInt(civilID.substring(4, 5)) * 7) +
+                (Integer.parseInt(civilID.substring(5, 6)) * 9) +
+                (Integer.parseInt(civilID.substring(6, 7)) * 10) +
+                (Integer.parseInt(civilID.substring(7, 8)) * 5) +
+                (Integer.parseInt(civilID.substring(8, 9)) * 8) +
+                (Integer.parseInt(civilID.substring(9, 10)) * 4) +
+                (Integer.parseInt(civilID.substring(10, 11)) * 2)) % 11);
+
+        double checksumValue = Double.parseDouble(civilID.substring(11));
+
+        if (test == checksumValue) {
+            valid = true;
+        }
+
+        return valid;
+    }
+
     public static String formatDate(String date) {
         String dateResult = "";
         Locale locale = new Locale("en");
@@ -159,6 +195,7 @@ public class GlobalFunctions {
         return formattedDate;
     }
 
+
     public static boolean isNetworkConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
@@ -170,9 +207,9 @@ public class GlobalFunctions {
 
     }
 
-    public static void generalErrorMessage(ProgressBar loading, Context context) {
+    public static void generalErrorMessage(Context context,View childView,ProgressBar loading) {
         loading.setVisibility(View.GONE);
-        Snackbar.make(loading, context.getString(R.string.generalError), Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(childView, context.getString(R.string.generalError), Snackbar.LENGTH_SHORT).show();
     }
 
 }

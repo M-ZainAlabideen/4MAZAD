@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/popup_dash" />
 
         <TextView
-            android:id="@+id/bottom_sheet_sort_tv_done"
+            android:id="@+id/bottom_sheet_dialog_sort_tv_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="42dp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView21">
 
             <RadioButton
-                android:id="@+id/bottom_sheet_sort_rb_AtoZOption"
+                android:id="@+id/bottom_sheet_dialog_sort_rb_nameSorting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:button="@drawable/radio_selector"
@@ -63,7 +63,7 @@
                 tools:layout_editor_absoluteY="56dp" />
 
             <RadioButton
-                android:id="@+id/bottom_sheet_sort_rb_ZtoAOption"
+                android:id="@+id/bottom_sheet_dialog_sort_rb_descendingNameSorting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -75,7 +75,7 @@
                 tools:layout_editor_absoluteY="110dp" />
 
             <RadioButton
-                android:id="@+id/bottom_sheet_sort_rb_lowToHighOption"
+                android:id="@+id/bottom_sheet_dialog_sort_rb_priceSorting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -87,7 +87,7 @@
                 tools:layout_editor_absoluteY="160dp" />
 
             <RadioButton
-                android:id="@+id/bottom_sheet_sort_rb_HighToLowOption"
+                android:id="@+id/bottom_sheet_dialog_sort_rb_descendingPriceSorting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -27,31 +27,29 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/product_details" />
 
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/fragment_auction_details_sv_imagesSlider"
+            <com.duolingo.open.rtlviewpager.RtlViewPager
+                android:id="@+id/fragment_auction_details_vp_imagesSlider"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:elevation="5dp"
+                android:focusableInTouchMode="true"
+                android:overScrollMode="never"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_auction_details_iv_sliderPlaceholder"
-                app:layout_constraintEnd_toEndOf="@id/fragment_auction_details_iv_sliderPlaceholder"
-                app:layout_constraintStart_toStartOf="@id/fragment_auction_details_iv_sliderPlaceholder"
-                app:layout_constraintTop_toTopOf="@+id/fragment_auction_details_iv_sliderPlaceholder"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderCircularHandlerEnabled="true"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="15dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
-                app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
-                app:sliderStartAutoCycle="true">
+                app:layout_constraintEnd_toEndOf="@+id/fragment_auction_details_iv_sliderPlaceholder"
+                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_iv_sliderPlaceholder"
+                app:layout_constraintTop_toTopOf="@+id/fragment_auction_details_iv_sliderPlaceholder" />
 
-            </com.smarteist.autoimageslider.SliderView>
+
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/fragment_auction_details_ci_sliderCircles"
+                android:layout_width="wrap_content"
+                android:layout_height="16dp"
+                app:ci_drawable="@drawable/circle_selected"
+                app:ci_drawable_unselected="@drawable/circle_un_selected"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_auction_details_iv_sliderPlaceholder"
+                app:layout_constraintEnd_toEndOf="@+id/fragment_auction_details_vp_imagesSlider"
+                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_vp_imagesSlider" />
+
 
             <ImageView
                 android:layout_width="0dp"
@@ -82,7 +80,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
                 android:padding="15dp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -94,7 +91,7 @@
                 android:id="@+id/fragment_auction_details_tv_highValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/hight_value_larg_box"
                 android:gravity="center"
                 android:fontFamily="@font/poppins_semibold"
@@ -109,7 +106,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
                 android:padding="15dp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -119,20 +115,20 @@
                 android:id="@+id/fragment_auction_details_tv_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
-                android:layout_marginBottom="12dp"
+                android:fontFamily="@font/poppins_regular"
                 android:text="11/4/2019 10:11 am"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                android:fontFamily="@font/poppins_regular"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="190dp"
                 app:layout_constraintEnd_toEndOf="@+id/fragment_auction_details_iv_share"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_tv_highValue" />
+                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_iv_share" />
 
             <ImageView
                 android:id="@+id/imageView24"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -190,7 +186,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_tv_productName" />
 
             <TextView
-                android:id="@+id/fragment_auction_details_tv_shortDescription"
+                android:id="@+id/fragment_auction_details_tv_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
@@ -213,50 +209,68 @@
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:fontFamily="@font/raleway_regular"
-                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_tv_shortDescription"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_tv_shortDescription" />
+                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_tv_description"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_tv_description" />
 
-            <TextView
-                android:id="@+id/fragment_auction_details_tv_remainingHours"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/fragment_auction_details_ll_remain"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/timmer_box_larg"
                 android:gravity="center"
                 android:text="@string/hour"
                 android:textColor="@color/darkGray"
                 app:layout_constraintStart_toStartOf="@+id/textView35"
-                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                app:layout_constraintTop_toBottomOf="@+id/textView35">
 
+                <TextView
+                    android:id="@+id/fragment_auction_details_tv_remainingDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAllCaps="true"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/day"
+                    android:textColor="@color/darkGray"
+                    android:background="@drawable/timmer_box_larg" />
 
-            <TextView
-                android:id="@+id/fragment_auction_details_tv_remainingMinutes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/timmer_box_larg"
-                android:gravity="center"
-                android:text="@string/minute"
-                android:textColor="@color/darkGray"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_auction_details_tv_remainingHours"
-                app:layout_constraintStart_toEndOf="@+id/fragment_auction_details_tv_remainingHours"
-                app:layout_constraintTop_toTopOf="@+id/fragment_auction_details_tv_remainingHours" />
+                <TextView
+                    android:id="@+id/fragment_auction_details_tv_remainingHours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/hour"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkGray"
+                    android:background="@drawable/timmer_box_larg" />
 
+                <TextView
+                    android:id="@+id/fragment_auction_details_tv_remainingMinutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/minute"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkGray"
+                    android:background="@drawable/timmer_box_larg" />
 
-            <TextView
-                android:id="@+id/fragment_auction_details_tv_remainingSeconds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:background="@drawable/timmer_box_larg"
-                android:gravity="center"
-                android:text="@string/second"
-                android:textColor="@color/darkGray"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_auction_details_tv_remainingMinutes"
-                app:layout_constraintStart_toEndOf="@+id/fragment_auction_details_tv_remainingMinutes"
-                app:layout_constraintTop_toTopOf="@+id/fragment_auction_details_tv_remainingMinutes" />
+                <TextView
+                    android:id="@+id/fragment_auction_details_tv_remainingSeconds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/second"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkGray"
+                    android:background="@drawable/timmer_box_larg" />
 
-
+            </LinearLayout>
+            
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="wrap_content"
@@ -266,8 +280,8 @@
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:fontFamily="@font/raleway_medium"
-                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_tv_remainingHours"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_tv_remainingHours" />
+                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_ll_remain"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_ll_remain" />
 
             <TextView
                 android:id="@+id/fragment_auction_details_tv_minimumIncrement"
@@ -403,39 +417,11 @@
                 android:id="@+id/fragment_auction_details_rv_attributes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView28"
                 app:layout_constraintStart_toStartOf="@+id/imageView28"
                 app:layout_constraintTop_toBottomOf="@+id/view22"
-                tools:listitem="@layout/item_product_attributes" />
+                tools:listitem="@layout/item_attributes" />
 
-            <View
-                android:id="@+id/view212"
-                android:layout_width="0dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="18dp"
-                android:background="@color/lightGray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_auction_details_rv_attributes" />
-
-            <TextView
-                android:id="@+id/fragment_auction_details_tv_fullDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="16dp"
-                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard... dummy text ever since the 1500s, when an unknown printer took a galley"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:fontFamily="@font/raleway_regular"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/fragment_auction_details_rv_attributes"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/fragment_auction_details_rv_attributes"
-                app:layout_constraintTop_toBottomOf="@+id/view212"
-                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

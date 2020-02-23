@@ -34,45 +34,62 @@
         app:layout_constraintStart_toStartOf="@+id/item_auctions_riv_productImage"
         app:layout_constraintTop_toTopOf="@+id/item_auctions_riv_productImage" />
 
-    <TextView
-        android:id="@+id/item_auctions_tv_remainingMinutes"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:gravity="center"
-        android:text="@string/minute"
-        android:textColor="@color/darkGray"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@id/item_auctions_riv_productImage"
         app:layout_constraintEnd_toEndOf="@+id/item_auctions_riv_productImage"
-        app:layout_constraintStart_toStartOf="@+id/item_auctions_riv_productImage"
-        android:background="@drawable/timmer_box" />
+        app:layout_constraintStart_toStartOf="@+id/item_auctions_riv_productImage">
 
-    <TextView
-        android:id="@+id/item_auctions_tv_remainingSeconds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:text="@string/second"
-        android:textColor="@color/darkGray"
-        app:layout_constraintBottom_toBottomOf="@+id/item_auctions_tv_remainingMinutes"
-        app:layout_constraintStart_toEndOf="@+id/item_auctions_tv_remainingMinutes"
-        app:layout_constraintTop_toTopOf="@+id/item_auctions_tv_remainingMinutes"
-        android:background="@drawable/timmer_box" />
+        <TextView
+            android:id="@+id/item_auctions_tv_remainingDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/timmer_box"
+            android:gravity="center"
+            android:text="@string/day"
+            android:textAllCaps="true"
+            android:textColor="@color/darkGray" />
 
-    <TextView
-        android:id="@+id/item_auctions_tv_remainingHours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:text="@string/hour"
-        android:textColor="@color/darkGray"
-        app:layout_constraintBottom_toBottomOf="@+id/item_auctions_tv_remainingMinutes"
-        app:layout_constraintEnd_toStartOf="@+id/item_auctions_tv_remainingMinutes"
-        app:layout_constraintTop_toTopOf="@+id/item_auctions_tv_remainingMinutes"
-        android:background="@drawable/timmer_box" />
+        <TextView
+            android:id="@+id/item_auctions_tv_remainingHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/timmer_box"
+            android:gravity="center"
+            android:text="@string/hour"
+            android:textAllCaps="true"
+            android:textColor="@color/darkGray" />
 
+        <TextView
+            android:id="@+id/item_auctions_tv_remainingMinutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/timmer_box"
+            android:gravity="center"
+            android:text="@string/minute"
+            android:textAllCaps="true"
+            android:textColor="@color/darkGray" />
+
+        <TextView
+            android:id="@+id/item_auctions_tv_remainingSeconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/timmer_box"
+            android:gravity="center"
+            android:text="@string/second"
+            android:textAllCaps="true"
+            android:textColor="@color/darkGray" />
+
+    </LinearLayout>
     <TextView
         android:id="@+id/item_auctions_tv_productName"
         android:layout_width="wrap_content"
@@ -100,7 +117,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/item_auctions_tv_remainingTime"
+        android:id="@+id/item_auctions_tv_startTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/time_icon"
@@ -124,7 +141,7 @@
         android:textColor="@color/darkGray2"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/item_auctions_tv_lastBid"
-        app:layout_constraintStart_toStartOf="@+id/item_auctions_tv_remainingTime"
+        app:layout_constraintStart_toStartOf="@+id/item_auctions_tv_startTime"
         app:layout_constraintTop_toTopOf="@+id/item_auctions_tv_currentPrice" />
 
     <TextView
@@ -153,4 +170,12 @@
         app:layout_constraintStart_toStartOf="@+id/item_auctions_riv_productImage"
         app:layout_constraintTop_toTopOf="@+id/item_auctions_riv_productImage" />
 
+    <View
+        android:id="@+id/item_auctions_v_details"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/item_auctions_riv_productImage"
+        app:layout_constraintEnd_toEndOf="@+id/item_auctions_riv_productImage"
+        app:layout_constraintStart_toStartOf="@+id/item_auctions_riv_productImage"
+        app:layout_constraintTop_toTopOf="@+id/item_auctions_riv_productImage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

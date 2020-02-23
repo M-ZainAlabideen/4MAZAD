@@ -31,21 +31,22 @@
                 app:layout_constraintTop_toTopOf="parent">
 
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/fragment_home_sv_search"
+                <EditText
+                    android:id="@+id/fragment_home_et_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/search_bar"
                     android:backgroundTint="@color/white"
                     android:ems="10"
-                    android:iconifiedByDefault="false"
-                    android:layoutDirection="rtl"
-                    app:defaultQueryHint="hint"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp"
+                    android:hint="@string/search"
+                    android:drawableEnd="@drawable/search_icon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:queryHint="hint" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.cardview.widget.CardView>
 
@@ -54,10 +55,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginEnd="27dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/advertisement"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView"
                 app:riv_corner_radius="7dp" />
 
@@ -66,12 +69,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:text="@string/categories"
                 android:fontFamily="@font/raleway_medium"
+                android:text="@string/categories"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/fragment_home_riv_Ad"
-                app:layout_constraintStart_toStartOf="@+id/fragment_home_riv_Ad"
+                android:layout_marginStart="27dp"
+                android:layout_marginEnd="27dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_home_riv_Ad" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -105,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
                 android:layout_marginEnd="7dp"
+                android:nestedScrollingEnabled="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

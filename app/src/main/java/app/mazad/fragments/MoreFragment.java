@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +16,7 @@ import app.mazad.R;
 import app.mazad.activities.MainActivity;
 import app.mazad.classes.GlobalFunctions;
 import app.mazad.classes.Navigator;
+import app.mazad.classes.SessionManager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -22,7 +24,10 @@ import butterknife.OnClick;
 public class MoreFragment extends Fragment {
     public static FragmentActivity activity;
     public static MoreFragment fragment;
+    private SessionManager sessionManager;
 
+    @BindView(R.id.fragment_more_tv_myAccountTxt)
+    TextView myAccountTxt;
     @BindView(R.id.fragment_more_iv_myAccountArrow)
     ImageView myAccountArrow;
     @BindView(R.id.fragment_more_iv_aboutUsArrow)
@@ -51,8 +56,13 @@ public class MoreFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        MainActivity.setupAppbar(true, false, true, false, true, getString(R.string.more));
-
+        MainActivity.setupAppbar(true, false, false, true, getString(R.string.more));
+        sessionManager = new SessionManager(activity);
+        if (sessionManager.isLoggedIn()) {
+            myAccountTxt.setText(getString(R.string.myAccount));
+        } else {
+            myAccountTxt.setText(getString(R.string.login));
+        }
         if (!MainActivity.isEnglish) {
             myAccountArrow.setRotation(180);
             aboutUsArrow.setRotation(180);
@@ -65,7 +75,11 @@ public class MoreFragment extends Fragment {
 
     @OnClick(R.id.fragment_more_v_myAccount)
     public void myAccountClick() {
-        Navigator.loadFragment(activity, AccountFragment.newInstance(activity), R.id.activity_main_fl_appContainer, true);
+        if (myAccountTxt.getText().toString().equals(getString(R.string.myAccount))) {
+            Navigator.loadFragment(activity, AccountFragment.newInstance(activity), R.id.activity_main_fl_appContainer, true);
+        } else {
+            Navigator.loadFragment(activity, LoginFragment.newInstance(activity), R.id.activity_main_fl_appContainer, true);
+        }
     }
 
     @OnClick(R.id.fragment_more_v_aboutUs)
